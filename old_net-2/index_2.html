@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/tabulator.css" rel="stylesheet">
+
+</head>
+<body>
+
+    <div>
+        <button id="add-row">Add Blank Row to bottom</button>
+        <button id="del-row">Remove Row "Oli Bob"</button>
+        <button id="clear">Empty the table</button>
+        <button id="reset">Reset</button>
+        <button id="download-xlsx" class="w3-hoverable w3-hover-lime">Download XLSX</button>
+        <button id="download-pdf">Download PDF</button>
+        <button id="print-table">Print Table</button>
+    </div>
+    <table id="example-table-re" class="w3-hoverable w3-hover-lime">
+        <thead>
+            <tr>
+                <th width="500">Name</th>
+                <th>Progress</th>
+                <th>Gender</th>
+                <th>Rating</th>
+                <th>Favourite Color</th>
+                <th>Date Of Birth</th>
+            </tr>
+        </thead>
+        <tbody class="w3-hoverable w3-hover-lime">
+            <tr>
+                <td>Billy Bob</td>
+                <td>12</td>
+                <td>male</td>
+                <td>1</td>
+                <td>red</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Mary May</td>
+                <td>1</td>
+                <td>female</td>
+                <td>2</td>
+                <td>blue</td>
+                <td>14/05/1982</td>
+            </tr>
+            <tr>
+                <td>Billy Bob</td>
+                <td>12</td>
+                <td>male</td>
+                <td>1</td>
+                <td>red</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Mary May</td>
+                <td>1</td>
+                <td>female</td>
+                <td>2</td>
+                <td>green</td>
+                <td>14/05/1982</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.20/jspdf.plugin.autotable.min.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/tabulator.js"></script>
+    <script type="text/javascript" src="js/one.js"></script>
+</body>
+</html>

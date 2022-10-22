@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Launch Chrome against localhost",
             "url": "http://net2.lc",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "/Users/denispolakov/Documents/GitHub/net-2/"
         }
     ]
 }

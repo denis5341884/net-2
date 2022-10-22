@@ -5,56 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="css/tabulator.css" rel="stylesheet">
-
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style_tab.css" >
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
 </head>
 <body>
-    <table id="example-table" class="w3-hoverable w3-hover-lime">
-        <thead>
-            <tr>
-                <th width="200">Name</th>
-                <th>Age</th>
-                <th>Gender</th>
-                <th>Height</th>
-                <th>Favourite Color</th>
-                <th>Date of Birth</th>
-            </tr>
-        </thead>
-        <tbody class="w3-hoverable w3-hover-lime">
-            <tr>
-                <td>Billy Bob</td>
-                <td>12</td>
-                <td>male</td>
-                <td>1</td>
-                <td>red</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Mary May</td>
-                <td>1</td>
-                <td>female</td>
-                <td>2</td>
-                <td>blue</td>
-                <td>14/05/1982</td>
-            </tr>
-            <tr>
-                <td>Billy Bob</td>
-                <td>12</td>
-                <td>male</td>
-                <td>1</td>
-                <td>red</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Mary May</td>
-                <td>1</td>
-                <td>female</td>
-                <td>2</td>
-                <td>green</td>
-                <td>14/05/1982</td>
-            </tr>
-        </tbody>
-    </table>
+    <div>
+        <button id="reactivity-add">Add New Row</button>
+        <button id="reactivity-delete">Remove Row</button>
+        <button id="reactivity-update">Update First Row Name</button>
+        <button id="rrt">selected row</button>
+    </div>
+    
+    <div id="example-table"></div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/tabulator.js"></script>
     <script type="text/javascript" src="js/one.js"></script>

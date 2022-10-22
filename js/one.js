@@ -1,68 +1,4 @@
-var table = new Tabulator("#example-table", {
-    height:"500px",
-    layout:"fitColumns",
-    persistence:{
-        sort:true,
-        filter:true,
-        columns:true,
-      },
-    pagination:"local",
-    paginationSize:10,
-    paginationSizeSelector:[10, 20, 50, 100],
-    movableColumns:true,
-    paginationCounter:"rows",
-    addRowPos:"bottom",
-    rowContextMenu: rowMenu,
-    clipboard:true,
-    clipboardPasteAction:"replace",
-    printAsHtml:true,
-    printHeader:"<h1>Example Table Header<h1>",
-    printFooter:"<h2>Example Table Footer<h2>",
-    columns:[
-        {title:"Name55", field:"name", width:150, editor:"input", headerFilter:"input", headerMenu:headerMenu},
-        {title:"Progress55", field:"progress", editor:"input", width:150, formatter:"progress", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false, headerMenu:headerMenu},
-        {title:"Gender", field:"gender", editor:"list", editorParams:{values:{"male":"Male", "female":"Female", clearable:true}}, headerFilter:true, headerFilterParams:{values:{"male":"Male", "female":"Female", "":""}, clearable:true}, headerMenu:headerMenu},
-        {title:"Rating", field:"rating", editor:"star", hozAlign:"center", width:100, headerFilter:"number", headerFilterPlaceholder:"at least...", headerFilterFunc:">=", headerMenu:headerMenu},
-        {title:"Favourite Color", field:"col", editor:"input", headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}, headerMenu:headerMenu},
-        {title:"Date Of Birth", field:"dob", editor:"input", hozAlign:"center", sorter:"date",  headerFilter:"input", headerMenu:headerMenu},
-        {title:"Driver", field:"car", hozAlign:"center", formatter:"tickCross",  headerFilter:"tickCross",  headerFilterParams:{"tristate":true},headerFilterEmptyCheck:function(value){return value === null}, headerMenu:headerMenu},
-    ]
-});
 
-
-//define row context menu contents
-var rowMenu = [
-    {
-        label:"<i class='fas fa-user'></i> Change Name",
-        action:function(e, row){
-            row.update({name:"Steve Bobberson"});
-        }
-    },
-    {
-        label:"<i class='fas fa-check-square'></i> Select Row",
-        action:function(e, row){
-            row.select();
-        }
-    },
-    {
-        separator:true,
-    },
-    {
-        label:"Admin Functions",
-        menu:[
-            {
-                label:"<i class='fas fa-trash'></i> Delete Row",
-                action:function(e, row){
-                    row.delete();
-                }
-            },
-            {
-                label:"<i class='fas fa-ban'></i> Disabled Option",
-                disabled:true,
-            },
-        ]
-    }
-];
 //define column header menu as column visibility toggle
 var headerMenu = function(){
     var menu = [];
@@ -108,118 +44,93 @@ var headerMenu = function(){
 
    return menu;
 };
-//custom max min header filter
-var minMaxFilterEditor = function(cell, onRendered, success, cancel, editorParams){
 
-    var end;
+//create header popup contents
+var headerPopupFormatter = function(e, column, onRendered){
+    var container = document.createElement("div");
 
-    var container = document.createElement("span");
+    var label = document.createElement("label");
+    label.innerHTML = "Filter Column:";
+    label.style.display = "block";
+    label.style.fontSize = ".7em";
 
-    //create and style inputs
-    var start = document.createElement("input");
-    start.setAttribute("type", "number");
-    start.setAttribute("placeholder", "Min");
-    start.setAttribute("min", 0);
-    start.setAttribute("max", 100);
-    start.style.padding = "4px";
-    start.style.width = "50%";
-    start.style.boxSizing = "border-box";
+    var input = document.createElement("input");
+    input.placeholder = "Filter Column...";
+    input.value = column.getHeaderFilterValue() || "";
 
-    start.value = cell.getValue();
+    input.addEventListener("keyup", (e) => {
+        column.setHeaderFilterValue(input.value);
+    });
 
-    function buildValues(){
-        success({
-            start:start.value,
-            end:end.value,
-        });
-    }
-
-    function keypress(e){
-        if(e.keyCode == 13){
-            buildValues();
-        }
-
-        if(e.keyCode == 27){
-            cancel();
-        }
-    }
-
-    end = start.cloneNode();
-    end.setAttribute("placeholder", "Max");
-
-    start.addEventListener("change", buildValues);
-    start.addEventListener("blur", buildValues);
-    start.addEventListener("keydown", keypress);
-
-    end.addEventListener("change", buildValues);
-    end.addEventListener("blur", buildValues);
-    end.addEventListener("keydown", keypress);
-
-
-    container.appendChild(start);
-    container.appendChild(end);
+    container.appendChild(label);
+    container.appendChild(input);
 
     return container;
- }
-//custom max min filter function
-function minMaxFilterFunction(headerValue, rowValue, rowData, filterParams){
-    //headerValue - the value of the header filter element
-    //rowValue - the value of the column in this row
-    //rowData - the data for the row being filtered
-    //filterParams - params object passed to the headerFilterFuncParams property
-
-        if(rowValue){
-            if(headerValue.start != ""){
-                if(headerValue.end != ""){
-                    return rowValue >= headerValue.start && rowValue <= headerValue.end;
-                }else{
-                    return rowValue >= headerValue.start;
-                }
-            }else{
-                if(headerValue.end != ""){
-                    return rowValue <= headerValue.end;
-                }
-            }
-        }
-
-    return true; //must return a boolean, true if it passes the filter.
 }
 
-//Add row on "Add Row" button click
-document.getElementById("add-row").addEventListener("click", function(){
-    alert('sssssssss');
-    table.addRow({});
+//create dummy header filter to allow popup to filter
+var emptyHeaderFilter = function(){
+    return document.createElement("div");;
+}
+
+//define data
+var tabledata = [
+    {id:1, OB:"Обьект 111-111", A:12, MU:"male", T:"Основной", AP:1100 },
+    {id:2, OB:"Обьект 222-222", A:1, MU:"female", T:"Основной Т", AP:1200 },
+    {id:55, OB:"Обьект 333-333", A:42, MU:"female", T:"Основной Т", AP:1200 },
+    {id:4, OB:"Обьект 444-444", A:100, MU:"male", T:"Основной Т", AP:1200 },
+    {id:5, OB:"Обьект 555-555", A:16, MU:"female", ratTing:5, T:"Основной Т", AP:1200},
+];
+
+//var tabledata = [{}];
+
+//Build Tabulator
+var table = new Tabulator("#example-table", {
+    height:"600px",
+    layout:"fitColumns",
+    movableColumns:true,
+    reactiveData:true, 
+    pagination:"local",
+    paginationSize:10,
+    paginationSizeSelector:[10, 20, 50, 100],
+    paginationCounter:"rows",
+    printAsHtml:true,
+    printHeader:"<h1>Example Table Header<h1>",
+    printFooter:"<h2>Example Table Footer<h2>",
+    scrollToRowIfVisible: false,
+    selectable:1,
+    data:tabledata,
+    columns:[
+        //{title:"Name", field:"name", sorter:"string", width:200, headerMenu:headerMenu},
+        {title:"Обьект", field:"OB", width:300, sorter:"string", headerMenu:headerMenu, headerPopup:headerPopupFormatter, headerPopupIcon:"<i class='fas fa-filter' title='Filter column'></i>", headerFilter:emptyHeaderFilter, headerFilterFunc:"like"},
+        {title:"", field:"A", sorter:"number", width:100, headerMenu:headerMenu},
+        {title:"Место установки", width:500, field:"MU", sorter:"string", headerMenu:headerMenu},
+        {title:"Тариф", field:"T", width:300, hozAlign:"center", sorter:"string", headerMenu:headerMenu},
+        {title:"АП", field:"AP", sorter:"number", headerMenu:headerMenu},
+    ]
 });
 
-//Delete row on "Delete Row" button click
-document.getElementById("del-row").addEventListener("click", function(){
-    table.deleteRow(1);
+//add row to bottom of table on button click
+document.getElementById("reactivity-add").addEventListener("click", function(){
+    //tabledata.push({name:"IM A NEW ROW", progress:100, gender:"male"});
+    table.addRow({name:"IM A NEW ROW", progress:100, gender:"male"});
+
 });
 
-//Clear table on "Empty the table" button click
-document.getElementById("clear").addEventListener("click", function(){
-    table.clearData()
+//remove bottom row from table on button click
+document.getElementById("reactivity-delete").addEventListener("click", function(){
+    table.replaceData("/data.php");
 });
 
-//Reset table contents on "Reset the table" button click
-document.getElementById("reset").addEventListener("click", function(){
-    table.setData(tabledata);
+//update name on first row in table on button click
+document.getElementById("reactivity-update").addEventListener("click", function(){
+    tabledata[0].name = "IVE BEEN UPDATED";
+    alert("hhhhhh");
 });
 
-//print button
-document.getElementById("print-table").addEventListener("click", function(){
-    table.print(false, true);
- });
-
-//trigger download of data.xlsx file
-document.getElementById("download-xlsx").addEventListener("click", function(){
-    table.download("xlsx", "data.xlsx", {sheetName:"My Data"});
-});
-
-//trigger download of data.pdf file
-document.getElementById("download-pdf").addEventListener("click", function(){
-    table.download("pdf", "data.pdf", {
-        orientation:"portrait", //set page orientation to portrait
-        title:"Example Report", //add title to report
-    });
+//update name on first row in table on button click
+document.getElementById("rrt").addEventListener("click", function(){
+    var selectedData = table.getSelectedData();
+    console.log(selectedData);
+    alert(JSON.stringify(selectedData));
 });

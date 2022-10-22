@@ -5,6 +5,8 @@
   font-size: 14px;
   text-align: left;
   overflow: hidden;
+  color: #fff!important;
+background-color: #616161!important;
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
   -ms-transform: translateZ(0);
@@ -68,7 +70,7 @@
 
 .tabulator .tabulator-header .tabulator-col.tabulator-moving {
   position: absolute;
-  border: 1px solid #999;
+  border: 0.5px solid #999;
   background: #cdcdcd;
   pointer-events: none;
 }
@@ -179,7 +181,7 @@
 
 .tabulator .tabulator-header .tabulator-col.tabulator-sortable[aria-sort="none"] .tabulator-col-content .tabulator-col-sorter.tabulator-col-sorter-element .tabulator-arrow:hover {
   cursor: pointer;
-  border-bottom: 6px solid #555;
+  border-bottom: 6px solid #d2dc5a;
 }
 
 .tabulator .tabulator-header .tabulator-col.tabulator-sortable[aria-sort="none"] .tabulator-col-content .tabulator-col-sorter .tabulator-arrow {
@@ -193,7 +195,7 @@
 
 .tabulator .tabulator-header .tabulator-col.tabulator-sortable[aria-sort="ascending"] .tabulator-col-content .tabulator-col-sorter.tabulator-col-sorter-element .tabulator-arrow:hover {
   cursor: pointer;
-  border-bottom: 6px solid #555;
+  border-bottom: 6px solid #d2dc5a;
 }
 
 .tabulator .tabulator-header .tabulator-col.tabulator-sortable[aria-sort="ascending"] .tabulator-col-content .tabulator-col-sorter .tabulator-arrow {
@@ -207,7 +209,7 @@
 
 .tabulator .tabulator-header .tabulator-col.tabulator-sortable[aria-sort="descending"] .tabulator-col-content .tabulator-col-sorter.tabulator-col-sorter-element .tabulator-arrow:hover {
   cursor: pointer;
-  border-top: 6px solid #555;
+  border-top: 6px solid #d2dc5a;
 }
 
 .tabulator .tabulator-header .tabulator-col.tabulator-sortable[aria-sort="descending"] .tabulator-col-content .tabulator-col-sorter .tabulator-arrow {
@@ -264,8 +266,8 @@
   box-sizing: border-box;
   min-width: 600%;
   background: #f3f3f3 !important;
-  border-top: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
+  border-top: 0.5px solid #aaa;
+  border-bottom: 0.5px solid #aaa;
 }
 
 .tabulator .tabulator-header .tabulator-calcs-holder .tabulator-row {
@@ -370,8 +372,8 @@
   width: 100%;
   text-align: left;
   background: #f3f3f3 !important;
-  border-bottom: 1px solid #aaa;
-  border-top: 1px solid #aaa;
+  border-bottom: 0.5px solid #aaa;
+  border-top: 0.5px solid #aaa;
   overflow: hidden;
 }
 
@@ -505,16 +507,16 @@
 }
 
 .tabulator-row.tabulator-selectable:hover {
-  background-color: #bbb;
+  background-color: #d2dc5a;
   cursor: pointer;
 }
 
 .tabulator-row.tabulator-selected {
-  background-color: #9ABCEA;
+  background-color: #c8c850;
 }
 
 .tabulator-row.tabulator-selected:hover {
-  background-color: #769BCC;
+  background-color: #d2dc5a;
   cursor: pointer;
 }
 
@@ -525,8 +527,8 @@
 
 .tabulator-row.tabulator-moving {
   position: absolute;
-  border-top: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
+  border-top: 0.5px solid #aaa;
+  border-bottom: 0.5px solid #aaa;
   pointer-events: none;
   z-index: 15;
 }
@@ -551,8 +553,8 @@
 .tabulator-row .tabulator-responsive-collapse {
   box-sizing: border-box;
   padding: 5px;
-  border-top: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
+  border-top: 0.5px solid #aaa;
+  border-bottom: 0.5px solid #aaa;
 }
 
 .tabulator-row .tabulator-responsive-collapse:empty {
@@ -576,7 +578,7 @@
   position: relative;
   box-sizing: border-box;
   padding: 4px;
-  border-right: 1px solid #aaa;
+  border: 0.5px solid grey;
   vertical-align: middle;
   white-space: nowrap;
   overflow: hidden;
@@ -592,11 +594,11 @@
 }
 
 .tabulator-row .tabulator-cell.tabulator-frozen.tabulator-frozen-left {
-  border-right: 2px solid #aaa;
+  border: 2px solid #aaa;
 }
 
 .tabulator-row .tabulator-cell.tabulator-frozen.tabulator-frozen-right {
-  border-left: 2px solid #aaa;
+  border: 1px solid #aaa;
 }
 
 .tabulator-row .tabulator-cell.tabulator-editing {
@@ -758,9 +760,9 @@
 
 .tabulator-row.tabulator-group {
   box-sizing: border-box;
-  border-bottom: 1px solid #999;
-  border-right: 1px solid #aaa;
-  border-top: 1px solid #999;
+  border-bottom: 0.5px solid #999;
+  border-right: 0.5px solid #aaa;
+  border-top: 0.5px solid #999;
   padding: 5px;
   padding-left: 10px;
   background: #ccc;
@@ -862,7 +864,7 @@
 
 .tabulator-menu .tabulator-menu-item:not(.tabulator-menu-item-disabled):hover {
   cursor: pointer;
-  background: #FFFFFF;
+  background: #EFEFEF;
 }
 
 .tabulator-menu .tabulator-menu-item.tabulator-menu-item-submenu {
@@ -1012,7 +1014,7 @@
 }
 
 .tabulator.tabulator-rtl .tabulator-row .tabulator-col-resize-handle:last-of-type {
-  width: 3px;
+  width: 0.5px;
   margin-left: 0;
   margin-right: -3px;
 }
