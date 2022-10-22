@@ -1,3 +1,34 @@
+var table = new Tabulator("#example-table", {
+    height:"500px",
+    layout:"fitColumns",
+    persistence:{
+        sort:true,
+        filter:true,
+        columns:true,
+      },
+    pagination:"local",
+    paginationSize:10,
+    paginationSizeSelector:[10, 20, 50, 100],
+    movableColumns:true,
+    paginationCounter:"rows",
+    addRowPos:"bottom",
+    rowContextMenu: rowMenu,
+    clipboard:true,
+    clipboardPasteAction:"replace",
+    printAsHtml:true,
+    printHeader:"<h1>Example Table Header<h1>",
+    printFooter:"<h2>Example Table Footer<h2>",
+    columns:[
+        {title:"Name55", field:"name", width:150, editor:"input", headerFilter:"input", headerMenu:headerMenu},
+        {title:"Progress55", field:"progress", editor:"input", width:150, formatter:"progress", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false, headerMenu:headerMenu},
+        {title:"Gender", field:"gender", editor:"list", editorParams:{values:{"male":"Male", "female":"Female", clearable:true}}, headerFilter:true, headerFilterParams:{values:{"male":"Male", "female":"Female", "":""}, clearable:true}, headerMenu:headerMenu},
+        {title:"Rating", field:"rating", editor:"star", hozAlign:"center", width:100, headerFilter:"number", headerFilterPlaceholder:"at least...", headerFilterFunc:">=", headerMenu:headerMenu},
+        {title:"Favourite Color", field:"col", editor:"input", headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}, headerMenu:headerMenu},
+        {title:"Date Of Birth", field:"dob", editor:"input", hozAlign:"center", sorter:"date",  headerFilter:"input", headerMenu:headerMenu},
+        {title:"Driver", field:"car", hozAlign:"center", formatter:"tickCross",  headerFilter:"tickCross",  headerFilterParams:{"tristate":true},headerFilterEmptyCheck:function(value){return value === null}, headerMenu:headerMenu},
+    ]
+});
+
 
 //define row context menu contents
 var rowMenu = [
@@ -154,39 +185,9 @@ function minMaxFilterFunction(headerValue, rowValue, rowData, filterParams){
     return true; //must return a boolean, true if it passes the filter.
 }
 
-var table = new Tabulator("#example-table", {
-    height:"500px",
-    layout:"fitColumns",
-    persistence:{
-        sort:true,
-        filter:true,
-        columns:true,
-      },
-    pagination:"local",
-    paginationSize:10,
-    paginationSizeSelector:[10, 20, 50, 100],
-    movableColumns:true,
-    paginationCounter:"rows",
-    addRowPos:"bottom",
-    rowContextMenu: rowMenu,
-    clipboard:true,
-    clipboardPasteAction:"replace",
-    printAsHtml:true,
-    printHeader:"<h1>Example Table Header<h1>",
-    printFooter:"<h2>Example Table Footer<h2>",
-    columns:[
-        {title:"Name111", field:"name", width:150, editor:"input", headerFilter:"input", headerMenu:headerMenu},
-        {title:"Progress111", field:"progress", editor:"input", width:150, formatter:"progress", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false, headerMenu:headerMenu},
-        {title:"Gender", field:"gender", editor:"list", editorParams:{values:{"male":"Male", "female":"Female", clearable:true}}, headerFilter:true, headerFilterParams:{values:{"male":"Male", "female":"Female", "":""}, clearable:true}, headerMenu:headerMenu},
-        {title:"Rating", field:"rating", editor:"star", hozAlign:"center", width:100, headerFilter:"number", headerFilterPlaceholder:"at least...", headerFilterFunc:">=", headerMenu:headerMenu},
-        {title:"Favourite Color", field:"col", editor:"input", headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}, headerMenu:headerMenu},
-        {title:"Date Of Birth", field:"dob", editor:dateEditor, hozAlign:"center", sorter:"date",  headerFilter:"input", headerMenu:headerMenu},
-        {title:"Driver", field:"car", hozAlign:"center", formatter:"tickCross",  headerFilter:"tickCross",  headerFilterParams:{"tristate":true},headerFilterEmptyCheck:function(value){return value === null}, headerMenu:headerMenu},
-    ],
-});
-
 //Add row on "Add Row" button click
 document.getElementById("add-row").addEventListener("click", function(){
+    alert('sssssssss');
     table.addRow({});
 });
 

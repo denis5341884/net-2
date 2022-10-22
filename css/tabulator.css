@@ -862,7 +862,7 @@
 
 .tabulator-menu .tabulator-menu-item:not(.tabulator-menu-item-disabled):hover {
   cursor: pointer;
-  background: #EFEFEF;
+  background: #FFFFFF;
 }
 
 .tabulator-menu .tabulator-menu-item.tabulator-menu-item-submenu {
