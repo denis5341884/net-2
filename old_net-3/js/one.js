@@ -1,4 +1,14 @@
 
+function ii(){
+    input = document.createElement("input");
+		
+    input.type = "datetime-local";
+    input.style.padding = "4px";
+    input.style.width = "100%";
+    input.style.boxSizing = "border-box";
+}
+
+
 //define column header menu as column visibility toggle
 var headerMenu = function(){
     var menu = [];
@@ -133,4 +143,11 @@ document.getElementById("rrt").addEventListener("click", function(){
     var selectedData = table.getSelectedData();
     console.log(selectedData);
     alert(JSON.stringify(selectedData));
+});
+
+//update name on first row in table on button click
+document.getElementById("wer").addEventListener("click", function(){
+    
+    console.log('hello');
+
 });

@@ -4,25 +4,86 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style_tab.css" >
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    
+    <title>Create a Form Dynamically with the JavaScript</title>
 </head>
 <body>
-    <div>
-        <button id="reactivity-add">Add New Row</button>
-        <button id="reactivity-delete">Remove Row</button>
-        <button id="reactivity-update">Update First Row Name</button>
-        <button id="rrt">selected row</button>
-    </div>
-    
-    <div id="example-table"></div>
+    <div id="sdfw"></div>
+    <button onClick = "GFG_Fun()">click here</button >
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/tabulator.js"></script>
-    <script type="text/javascript" src="js/one.js"></script>
+        <table>
+            <colgroup>
+              <col span="2" style="background:Khaki"><!-- С помощью этой конструкции задаем цвет фона для первых двух столбцов таблицы-->
+              <col style="background-color:LightCyan"><!-- Задаем цвет фона для следующего (одного) столбца таблицы-->
+            </colgroup>
+            <tr>
+              <th>№ п/п</th>
+              <th>Наименование</th>
+              <th>Цена, руб.</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Карандаш цветной</td>
+              <td id="sdg">20,00</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Линейка 20 см</td>
+              <td id="sdf">30,00</td>
+            </tr>
+          </table>
+
+
+<script >
+        var down = document.getElementById("sdf");
+        
+        var sdg = document.getElementById("sdg");
+
+        function dfg(){
+            
+            var str_f = document.getElementById("sdq23").value;
+            console.log(str_f);
+        }
+
+        function GFG_Fun() 
+        {
+            // Create an input element for Full Name
+            var FN = document.createElement("input");
+            FN.setAttribute("type", "text");
+            FN.setAttribute("name", "FullName");
+            FN.setAttribute("placeholder", sdg.innerText);
+            
+            down.innerText="";
+            sdg.innerText="";
+
+            // Create an input element for Full Name
+            var DN = document.createElement("input");
+            DN.setAttribute("type", "date");
+            DN.setAttribute("name", "date");
+            DN.setAttribute("placeholder", "date");
+            DN.setAttribute("style", "height: 50px; left: 300px; top: 150 px;");
+            DN.setAttribute("class", "w3-hover-lime");
+            DN.setAttribute("id", "sdq23");
+            
+            // create a submit button
+            var s = document.createElement("input");
+            s.setAttribute("type", "button");
+            s.setAttribute("style", "height: 50px;");
+            s.setAttribute("value", "button");
+            s.setAttribute("onclick", "dfg();");
+            
+            down.prepend(s);
+            down.prepend(DN);
+            sdg.prepend(FN);
+
+            
+            
+
+        }
+</script >
+
 </body>
 </html>
+
+
+
+
