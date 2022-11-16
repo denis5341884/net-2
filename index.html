@@ -1,85 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create a Form Dynamically with the JavaScript</title>
+<meta content=" initial-scale = 1 , maximum-scale = 1, user-scalable = 0 " name = "viewport" />
+<meta name = "viewport" content = "width=device-width"/>
+
+<script type = "text/javascript" src = " https://code.jquery.com/jquery-3.5.1.js "></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<link rel = "stylesheet" href ="dataload.css"/>
+<script type = "text/javascript" src ="dataload.js"></script>
+
+
 </head>
 <body>
-    <div id="sdfw"></div>
-    <button onClick = "GFG_Fun()">click here</button >
-
-        <table>
-            <colgroup>
-              <col span="2" style="background:Khaki"><!-- С помощью этой конструкции задаем цвет фона для первых двух столбцов таблицы-->
-              <col style="background-color:LightCyan"><!-- Задаем цвет фона для следующего (одного) столбца таблицы-->
-            </colgroup>
-            <tr>
-              <th>№ п/п</th>
-              <th>Наименование</th>
-              <th>Цена, руб.</th>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Карандаш цветной</td>
-              <td id="sdg">20,00</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Линейка 20 см</td>
-              <td id="sdf">30,00</td>
-            </tr>
-          </table>
-
-
-<script >
-        var down = document.getElementById("sdf");
-        var sdg = document.getElementById("sdg");
-
-        function dfg(){
-            
-            var str_f = document.getElementById("sdq23").value;
-            console.log(str_f);
-        }
-
-        function GFG_Fun() 
-        {
-            // Create an input element for Full Name
-            var FN = document.createElement("input");
-            FN.setAttribute("type", "text");
-            FN.setAttribute("name", "FullName");
-            FN.setAttribute("placeholder", sdg.innerText);
-            
-            down.innerText="";
-            sdg.innerText="";
-
-            // Create an input element for Full Name
-            var DN = document.createElement("input");
-            DN.setAttribute("type", "date");
-            DN.setAttribute("name", "date");
-            DN.setAttribute("placeholder", "date");
-            DN.setAttribute("style", "height: 50px; left: 300px; top: 150 px;");
-            DN.setAttribute("class", "w3-hover-lime");
-            DN.setAttribute("id", "sdq23");
-            
-            // create a submit button
-            var s = document.createElement("input");
-            s.setAttribute("type", "button");
-            s.setAttribute("style", "height: 50px;");
-            s.setAttribute("value", "button");
-            s.setAttribute("onclick", "dfg();");
-            
-            down.prepend(s);
-            down.prepend(DN);
-            sdg.prepend(FN);
-
-        }
-</script >
-
+<h2>Pagination using jQuery Datatables </h2>
+<div class="w3-half">
+<table id = "tableID" class = "w3-table-all w3-hoverable">
+    <thead>
+        <tr class="w3-dark-grey">
+            <th>StudentID</th>
+            <th>StudentName</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Marks Scored</th>
+        </tr>
+    </thead>
+    <tbody >
+        <tr class="w3-hover-lime w3-border">
+            <td>ST1</td>
+            <td>Prema</td>
+            <td>35</td>
+            <td>Female</td>
+            <td>320</td>
+        </tr>
+        <tr class="w3-hover-lime">
+            <td>ST2</td>
+            <td>Wincy</td>
+            <td>36</td>
+            <td>Female</td>
+            <td>170</td>
+        </tr>
+        <tr class="w3-hover-lime">
+            <td>ST3</td>
+            <td>Ashmita</td>
+            <td>41</td>
+            <td>Female</td>
+            <td>860</td>
+        </tr>
+        <tr class="w3-hover-lime">
+            <td>ST4</td>
+            <td>Kelina</td>
+            <td>32</td>
+            <td>Female</td>
+            <td>433</td>
+        </tr>
+        <tr>
+            <td>ST5</td>
+            <td>Satvik</td>
+            <td>41</td>
+            <td>male</td>
+            <td>162</td>
+        </tr>
+        <tr>
+            <td>ST6</td>
+            <td>William</td>
+            <td>37</td>
+            <td>Female</td>
+            <td>372</td>
+        </tr>
+        <tr>
+            <td>ST7</td>
+            <td>Chandan</td>
+            <td>31</td>
+            <td>male</td>
+            <td>375</td>
+        </tr>
+        <tr>
+            <td>ST8</td>
+            <td>David</td>
+            <td>45</td>
+            <td>male</td>
+            <td>327</td>
+        </tr>
+        <tr>
+            <td>ST9</td>
+            <td>Harry</td>
+            <td>29</td>
+            <td>male</td>
+            <td>205</td>
+        </tr>
+        <tr>
+            <td>ST10</td>
+            <td>Frost</td>
+            <td>29</td>
+            <td>male</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td>ST11</td>
+            <td>Ginny</td>
+            <td>31</td>
+            <td>male</td>
+            <td>560</td>
+        </tr>
+        <tr>
+            <td>ST12</td>
+            <td>Flod</td>
+            <td>45</td>
+            <td>Female</td>
+            <td>342</td>
+        </tr>
+        <tr>
+            <td>ST13</td>
+            <td>Marshy</td>
+            <td>23</td>
+            <td>Female</td>
+            <td>470</td>
+        </tr>
+        <tr>
+            <td>ST13</td>
+            <td>Kennedy</td>
+            <td>43</td>
+            <td>male</td>
+            <td>313</td>
+        </tr>
+        <tr>
+            <td>ST14</td>
+            <td>Fiza</td>
+            <td>31</td>
+            <td>Female</td>
+            <td>750</td>
+        </tr>
+        <tr>
+            <td>ST15</td>
+            <td>Silva</td>
+            <td>34</td>
+            <td>male</td>
+            <td>985</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+    <script>
+    /* Initialization of datatable */
+    $(document).ready(function() {
+            $('#tableID').DataTable({ });
+        });
+</script>
 </body>
 </html>
-
-
-
-
