@@ -1,0 +1,94 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="/jquery/jquery-3.1.1.min.js"></script>
+    <script src="/jsonedit/json-edit.js"></script>
+
+    <link href="/jsonedit/json-edit.css" rel="stylesheet" type="text/css" />
+
+    <script>
+
+        var s = {
+            "title": "json schema sample",
+            "type": "object",
+            "properties": {
+                "numberField": {
+                    "title": "Номер документа",
+                    "type": "number",
+                    "ui": {
+                        "editor": "number"
+                    }
+                },
+                "dateField": {
+                    "title": "Дата документа",
+                    "type": "string",
+                    "ui": {
+                        "editor": "date"
+                    }
+                },
+                "booleanField": {
+                    "title": "Boolean Field",
+                    "type": "boolean"
+                }
+            }
+
+        };
+
+        var v = {
+            "dateField": "2022-11-21",
+            "numberField": "6",
+            "booleanField": false
+        };
+
+        create_form(s,v)
+
+
+        function setValidity() {
+            if (je) $("#jsonValidity").html(JSON.stringify(je.isValid()));
+        }
+
+        function create_form(schema,value){
+            var je;
+            $(document).ready(function () {
+                je = $("#jsonEditor").jsonEdit({
+                    "schema": schema,
+                    "value": value,
+                    "afterValueChanged": function (newValue, newSchema) {
+                        $("#jsonValue").html(JSON.stringify(newValue, null, 2));
+                        setValidity();
+                    },
+                    "afterWidgetCreated": function (newValue, newSchema) {
+                        $("#jsonValue").html(JSON.stringify(newValue, null, 2));
+                        //setValidity();
+                    }
+                });
+            })
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <table style="width: 100%;vertical-align: text-top;">
+        <tr>
+            <td style="width:30%;vertical-align: top;">
+                <div id="jsonEditor"></div>
+            </td>
+            <td style="width:2%;">&nbsp;</td>
+            <td style="width:68%;vertical-align: top;">
+                <b>json value</b> :
+                <pre id="jsonValue"></pre>
+
+                <b>Is Valid</b> :
+                <pre id="jsonValidity">true</pre>
+            </td>
+        </tr>
+
+    </table>
+
+
+</body>
+
+</html>

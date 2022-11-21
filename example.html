@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<!-- Init jQuery and jQuery UI -->
+<script type="text/javascript" src="jquery/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="jquery/jquery-ui-1.8.20.custom.min.js"></script>
+<link href="jquery/ui-lightness/jquery-ui-1.8.20.custom.css" media="screen" rel="stylesheet" type="text/css">
+
+<!-- Init jqDynaForm -->
+<link href="jqDynaForm/jqDynaForm.css" media="screen" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="jqDynaForm/jqDynaForm.js"></script>
+
+<!-- Assets for example -->
+<link href="example.css" media="screen" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="fakeData.js"></script>
+<script type="text/javascript" src="example.js"></script>
+</head>
+
+
+<body>
+<h1>Demo</h1>
+
+<!------------------------------------------------------------------------------>
+<h1>Simple form demo</h1>
+<div id="smallForm">    
+    <h2>Invoice</h2>
+    <p>Number: <input name="number" size="6"> Payer: <input name="payer">  </p>    
+          
+    <h3>Products</h3>          
+    <div data-holder-for="product"></div>        
+
+    <p>&nbsp;</p>       
+    
+    <p></p>
+    <input type="button" value="Save" id="saveSmallForm">
+</div>
+
+<!-- Subforms library -->
+<div style="display:none">
+    <div data-name="product" data-label="Product" class="product">
+        <input name="title" style="width:600px"> 
+        Price: <input name="price" style="width:100px; text-align:right"> 
+        X <input name="amount" class="short" value="1"  style="width:50px">
+    </div>
+</div>    
+
+<div id="popup"></div>
+
+</body> 
+</html>
