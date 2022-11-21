@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        span.gr_bttn:hover button.hov_bttn, span.gr_bttn:hover button.hov_x 
+        {
+            background-color: #cddc39;
+        }
+
+        button.hov_x:hover::after
+        {
+            content: attr(data-title); 
+            position: absolute; /* Абсолютное позиционирование */
+            /*left: 50px; */
+            top: 150px; /* Положение подсказки */
+
+            z-index: 1; /* Отображаем подсказку поверх других элементов */
+            background: rgba(255,255,230,0.9); /* Полупрозрачный цвет фона */
+            font-family: Arial, sans-serif; /* Гарнитура шрифта */
+            font-size: 11px; /* Размер текста подсказки */
+            padding: 5px 10px; /* Поля */
+            border: 1px solid #333; /* Параметры рамки */
+        }
+    </style>
+<body>
+
+<div class="w3-container">
+  <h2>Tabs</h2>
+  <p>Tabs are perfect for single page web applications, or for web pages capable of displaying different subjects. Click on the links below.</p>
+</div>
+
+   
+
+</body>
+</html>

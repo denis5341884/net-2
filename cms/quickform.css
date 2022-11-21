@@ -1,0 +1,206 @@
+/*
+ *
+ * Default stylesheet for HTML_QuickForm2 forms.
+ *
+ * Based on stylesheet from HTML_QuickForm_Renderer_Tableless package
+ * by Mark Wiesemann <wiesemann at php dot net>
+ *
+ * $Id: quickform.css 295963 2010-03-08 14:33:43Z avb $
+ *
+ */
+
+.quickform input, .quickform textarea, .quickform select {
+    width: auto;
+}
+.quickform textarea {
+    overflow: auto;
+}
+.quickform div.row {
+    padding: 0;
+    margin: 0;
+    clear: both;
+}
+.quickform div.reqnote {
+    clear: both;
+    font-size: 80%;
+    margin: 0.5em 0 0 1em;
+}
+.quickform span.error, .quickform span.required {
+    color: red;
+}
+
+
+
+
+
+
+.quickform form {
+    margin: 0;
+    padding: 0;
+}
+.quickform fieldset {
+    clear: both;
+    border: 1px solid #808080;
+    margin: 0.2em 0 0 0;
+    padding: 0.5em;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    margin-bottom:10px;
+}
+.quickform fieldset legend {
+    white-space: nowrap;
+    font-weight: normal;
+    background-color: #efefef;
+    padding: 2px 10px;
+    display: block;
+    margin: 0 0 0 10px;
+    border: 1px solid #808080;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+
+}
+.quickform  .jqf_row_wrap{
+    padding:10px;
+}
+.quickform  .jqf_row{
+    margin-bottom:20px;
+}
+.quickform  .jqf_submits{
+    text-align:center;
+    padding:5px;
+}
+.quickform  span.jqf_error{
+    color:red;
+    float:right;
+}
+.quickform  .jqf_submits .big{
+    font-size:20px;
+}
+.quickform .group .jqf_row{
+    float:left;
+    padding-right:10px;
+}
+.quickform label {
+    font-weight:bold;
+}
+.quickform div.jqf_error input,.quickform div.jqf_error select{
+    border: 1px solid red;
+}
+.jqf_example{
+    color:#D56C56;
+    font-size:0.9em;
+    font-style:italic;
+}
+.jqf_comment{
+    font-size:0.9em;
+    color:#7C7C7C;
+}
+.ajax{
+    border-bottom:1px dashed;
+    cursor:pointer;
+    text-decoration:none;
+}
+.quickform .col .jqf_row span.jqf_error{
+    margin-right:10px;
+}
+.quickform .col2 .jqf_row {
+    width:50%;
+    padding:0;
+    float:left;
+}
+.quickform .col3 .jqf_row {
+    width:33%;
+    padding:0;
+    float:left;
+}
+.quickform .col4 .jqf_row {
+    width:25%;
+    padding:0;
+    float:left;
+}
+
+.quickform label.jqf_element {
+font-size:12px;
+}
+.quickform label.jqf_group {
+    font-size:14px;
+}
+.quickform .jqf_date label.jqf_group {
+    font-size:12px;
+}
+.quickform .jqf_date{
+    clear:both;
+}
+.quickform .jqf_date .jqf_row {
+    float:left;
+    margin-right:10px;
+}
+.quickform .jqf_date .jqf_row label{
+
+    font-weight:normal;
+    font-size:10px;
+}
+.clear{clear:both}
+.quickform .jqf_submits .jqf_row{
+    display:inline-block;
+    padding:0 20px;
+}
+.quickform .jqf_checkbox{
+    position:relative;
+}
+.quickform .jqf_checkbox label{
+    font-weight:normal;
+    padding-left:14px;
+}
+.quickform .jqf_checkbox input{
+    top:3px;
+    left:-3px;
+    position:absolute;
+}
+.quickform input[type=submit]{
+    padding:5px;
+}
+/* page */
+.quickform .jqf_page{
+}
+.quickform .jqf_page_current{
+}
+.quickform .jqf_page_buttons{
+
+    border-top:1px solid #ccc;
+}
+    .quickform .jqf_page_next{
+        float:right;
+        margin:10px;
+        display:none;
+    }
+    .quickform .jqf_page_prev{
+        float:left;
+        margin:10px;
+        display:none;
+    }
+    .quickform .jqf_page_buttons input[type=submit]{
+        float:right;
+    }
+
+
+.jqfslider{
+    margin:5px 0;
+}
+.jqf_slider_header{
+    margin-bottom:5px;
+}
+.jqf_slider_header input{
+    border:none;
+    width:30px;
+    text-align:center;
+}
+.jqf_slider_header .jqf_comment{
+    float:left;
+}
+
+.quickform .jqf_slider_header .jqf_comment{
+    display:inline;
+}
