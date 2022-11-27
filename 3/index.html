@@ -7,11 +7,14 @@
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="index.js"></script>
+    <script src="tabletojson.js"></script>
+    
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
-    <body onLoad="buildHtmlTable('#excelDataTable')">
+    <body>
+        <button onclick="buildHtmlTable('#excelDataTable')">Построить таблицу</button>
         <table class="w3-table-all" id="excelDataTable" border="1"></table>
-        <button onclick="tableToJSON2('excelDataTable')">Получить JSON</button>
+        <button onclick="html2json('excelDataTable')">Получить JSON</button>
         <div id="sss"></div>
     </body>
 </html>

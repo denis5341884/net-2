@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Populate JS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        legend {
+            background-color: #0000ff;
+            color: #fff;
+            padding: 3px 6px;
+        }
+        .form-label {
+            background-color: #00ff00;
+        }
+        .output {
+            font: 1rem 'Fira Sans', sans-serif;
+            background-color: #f2ff00;
+        }
+
+        input {
+            margin: .4rem;
+            background-color: #ff0000;
+        }
+    </style>
+    <script src="populatejs.js"></script>
+</head>
+
+<body>
+    <form action="">
+        <fieldset>
+            <legend>PopulateJS</legend>
+                <label class="form-label" for="last_name">Last name</label>&nbsp;
+                <input type="text" name="last_name" id="last_name">
+                <label class="form-label" for="date_n">Last name</label>&nbsp;
+                <input type="date" name="date_n" id="date_n">
+                <label class="form-label" for="last_name_aa">Last name</label>&nbsp;
+                <input type="text" name="last_name_aa" id="last_name">
+            <br>
+            <legend>123</legend>
+                <label class="form-label" for="last_name_aa">Last name</label>&nbsp;
+                <input type="text" name="last_name_aa" id="last_name">
+                <label class="form-label" for="date_n_aa">Last name</label>&nbsp;
+                <input type="date" name="date_n_aa" id="date_n_aa">
+            <br>
+            <legend>445</legend>           
+                <label class="form-label" for="date_n_vv">JJJJ KKKKK</label>&nbsp;
+                <input type="date" name="date_n_vv" id="date_n_vv">
+                       
+                    <label class="form-label" for="date_n_vv">JJJJ KKKKK</label>&nbsp;
+                    <input type="date" name="date_n_vv" id="date_n_vv">
+                
+                <br>
+            <br>
+        </fieldset>
+        <fieldset>
+            <legend style="display: none;"></legend>
+                <label class="form-label" for="last_name">Last name</label>&nbsp;
+                <input type="text" name="last_name" id="last_name">
+                <label class="form-label" for="date_n">Last name</label>&nbsp;
+                <input type="date" name="date_n" id="date_n">
+            <br>
+        </fieldset>
+    </form>
+    <script>
+        (function () {
+            //var myList = [{ "name": "abc", "age": 50, "hobby": "lissen" },{ "name": "dfg", "age": 25, "hobby": "swimming" },{ "name": "xyz", "age": 50, "hobby": "programming" }];
+
+            var myList = {
+                'last_name': 'denis',
+                'last_name_aa':'denis_aaa_pppppp',
+                'date_n':'2022-01-11',
+                'date_n_aa':'2022-05-20',
+            };
+
+            populatejs(myList);
+
+        })();
+    </script>
+</body>
+
+</html>

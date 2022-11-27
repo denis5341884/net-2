@@ -20,7 +20,7 @@
                     const myObj = JSON.parse(this.responseText);
                     let text = "<table border='1'>"
                         for (let x in myObj) {
-                            text += "<tr><td>" + myObj[x] + "</td></tr>";
+                            text += "<tr><td>" + myObj[x].name + "</td></tr>";
                         }
                     text += "</table>"    
                     document.getElementById("demo").innerHTML = text;

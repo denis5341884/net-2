@@ -32,23 +32,16 @@ function addAllColumnHeaders(myList, selector) {
   return columnSet;
 }
 
-function tableToJson(tt) {
-    let result = [];
-    let table = document.getElementById(tt).getElementsByTagName("tbody")[0];
-    let trs = table.getElementsByTagName("tr");
-    for (let i = 1; i < trs.length; i++) {
-      let tds = trs[i].getElementsByTagName("td");
-      let obj = {};
-        obj.name = tds[0].innerHTML;
-        obj.rank = tds[1].innerHTML;
-        obj.phone = tds[2].innerHTML;
-        result.push(obj);
-    }
-    console.log(JSON.stringify(result));
-  }
+function html2json(tt){
+  var table = $('#'+tt).tableToJSON(); // Convert the table into a javascript object
 
-  function html2json(tt) {
-    var json = '{';
+  console.log(myList);
+  console.log("----------------------");
+  console.log(table);
+}
+
+  function html2json22(tt) {
+    var json = '[';
     var otArr = [];
     var tbl2 = $('#'+tt+' tr').each(function(i) {        
        x = $(this).children();
@@ -56,22 +49,14 @@ function tableToJson(tt) {
        x.each(function() {
           itArr.push('"' + $(this).text() + '"');
        });
-       otArr.push('"' + i + '": [' + itArr.join(',') + ']');
+       otArr.push('{' + itArr.join(',') + '}');
     })
-    json += otArr.join(",") + '}'
- 
+    json += otArr.join(",") + ']'
+    
+    var myList = [{ "name": "abc", "age": 50, "hobby": "lissen" },{ "name": "dfg", "age": 25, "hobby": "swimming" },{ "name": "xyz", "age": 50, "hobby": "programming" }];
+    
+    console.log(myList);
+    console.log("----------------------");
     console.log(json);
     //return json;
  }
-
- function tableToJSON2(tt) {
-    var table=document.getElementById(tt);
-    var obj = {};
-    var row, rows = table.rows;
-    for (var i=0, iLen=rows.length; i<iLen; i++) {
-      row = rows[i];
-      obj[row.cells[0].textContent] = row.cells[1].textContent
-    }
-    //return JSON.stringify(obj);
-    console.log(JSON.stringify(obj));
-  }
