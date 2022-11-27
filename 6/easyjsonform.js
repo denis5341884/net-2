@@ -800,6 +800,10 @@ class EasyJsonForm {
         this.structure.forEach((element, i) => {
             let tr = tbody.insertRow(-1);
 
+            let mainTd = tr.insertCell(-1);
+            mainTd.appendChild(element.formFieldCreate(this, i));
+            mainTd.style.width = '80%';
+
             let toolbarTd = tr.insertCell(-1);
             let toolbar = this.element('div', 'BuilderFieldTooldbar');
             toolbarTd.appendChild(toolbar);
@@ -834,10 +838,6 @@ class EasyJsonForm {
             btnDelete.type = 'button';
             btnDelete.innerHTML = EasyJsonForm.iconDelete;
             toolbar.appendChild(btnDelete);
-
-            let mainTd = tr.insertCell(-1);
-            mainTd.appendChild(element.formFieldCreate(this, i));
-            mainTd.style.width = '80%';
 
             btnEdit.onclick = () => {
                 let editor = this.structure[i].builderEditor(this, () => {
