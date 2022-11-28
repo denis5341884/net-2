@@ -1,4 +1,4 @@
-var ejfStyle = ejfBootstrapStyle; //Imported from 'easyjsonform-bootstrap.js'
+var ejfStyle = net_css;//ejfBootstrapStyle; //Imported from 'easyjsonform-bootstrap.js'
 var sampleEasyJsonForm;
 var sampleEasyJsonFormOptions = {
     disabled: false,
@@ -8,10 +8,11 @@ var sampleEasyJsonFormOptions = {
     onStructureChange: () => {},
     onValueChange: () => {},
 };
+var rt=true;
 
 function open_struc(sd){
     let str=[];
-    if (sd){
+    if (rt){
         str = [
             {
                 "type": "text",
@@ -59,9 +60,10 @@ function open_struc(sd){
                 "value": null
             }
         ];
-        sd=false;
+        rt=false;
     }else
     {
+        //sampleEasyJsonForm.formUpdate();
         str=sampleEasyJsonForm.structureExport();
     }
     return str;

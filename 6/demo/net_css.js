@@ -1,93 +1,93 @@
 // Listing all possible areas that can be styled by applying css classes (using classList) 
 // or using css properties directy (using style). Empty entries can be deleted (they are
 // just shown for reference purposes).
-var ejfBootstrapStyle = {
+var net_css = {
     Builder: { 
-        classList: ['w3-container'],
+        classList: [],
         style: {},
     },
     BuilderTable: {
-        classList: ['w3-table','w3-hoverable', 'w3-dark-grey' ],
+        classList: [],
         style: {},
     },
     BuilderToolbar: { 
-        classList: ['w3-bar' ],
+        classList: [],
         style: {},
     },
     BuilderToolbarButton: { 
-        classList: ['w3-bar-item', 'w3-button', 'w3-hover-lime'],
+        classList: ['w3-button', 'w3-border', 'w3-grey', 'w3-hover-lime'],
         style: {},
     },
     BuilderFieldTooldbar: {
-        classList: ['btn-group','w-100'],
+        classList: ['w3-bar'],
         style: {},
     },
     BuilderFieldTooldbarButton: {
-        classList: ['w3-button', 'w3-hover-lime'],
+        classList: ['w3-button', 'w3-border', 'w3-grey','w3-hover-lime'],
         style: {},
     },
     BuilderFieldTooldbarDeleteButton: {
-        classList: ['w3-button', 'w3-hover-lime'],
+        classList: ['w3-button', 'w3-border', 'w3-grey','w3-hover-red'],
         style: {},
     },
     Form: { 
-        classList: ['w3-table' , 'w3-hoverable'],
+        classList: [],
         style: {},
     },
     FieldMultiplechoice: {
-        classList: ['w3-text-black' ],
+        classList: [],
         style: {},
     },
     FieldMultiplechoiceLabel: {
-        classList: ['w3-text-black' ],
+        classList: ['w3-third'],
         style: {},
     },
     FieldMultiplechoiceGroup: {
-        classList: ['w3-select' ],
+        classList: [],
         style: {},
     },
     FieldMultiplechoiceItem: {
-        classList: ['w3-check' ],
+        classList: [],
         style: {},
     },
     FieldMultiplechoiceItemLabel: {
-        classList: [ ],
+        classList: ['w3-third'],
         style: {},
     },
     FieldMultiplechoiceItemInput: {
-        classList: ['w3-check' ],
+        classList: [],
         style: {},
     },
     FieldSinglechoice: {
-        classList: ['w3-select' ,'w3-hover-lime'],
+        classList: [],
         style: {},
     },
     FieldSinglechoiceLabel: {
-        classList: ['w3-text-black' ],
+        classList: ['w3-third'],
         style: {},
     },
     FieldSinglechoiceSelect: {
-        classList: ['w3-text-black' ],
+        classList: ['w3-twothird','w3-input', 'w3-border'],
         style: {},
     },
     FieldNumber: {
-        classList: ['w3-input' ],
+        classList: [],
         style: {},
     },
     FieldNumberLabel: {
-        classList: ['w3-text-black' ],
+        classList: ['w3-third'],
         style: {},
     },
     FieldNumberInput: {
-        classList: ['w3-input' ,'w3-hover-lime'],
+        classList: [],
         style: {},
     },
     FieldDateLabel: {
-        classList: ['w3-text-black' ],
+        classList: ['w3-third'],
         style: {},
     },
     FieldDateInput: {
-        classList: ['w3-input' ,'w3-hover-lime'],
+        classList: [],
         style: {},
     },
 
@@ -96,36 +96,36 @@ var ejfBootstrapStyle = {
         style: {},
     },
     FieldTextLabel: {
-        classList: [],
+        classList: ['w3-third','w3-text-black'],
         style: {},
     },
     fieldTextInput: {
-        classList: [],
+        classList: ['w3-twothird','w3-input', 'w3-border'],
         style: {},
     },
 
     FieldTextgroup: {
-        classList: ['w3-input' ],
+        classList: [],
         style: {},
     },
     FieldTextgroupLabel: {
-        classList: ['w3-text-black' ],
+        classList: [],
         style: {},
     },
     FieldTextgroupGroup: {
-        classList: ['d-flex' ,'flex-nowrap','justify-content-between','align-items-stretch'],
+        classList: [],
         style: {},
     },
     FieldTextgroupItem: {
-        classList: ['w3-input' ],
+        classList: [],
         style: {},
     },
     FieldTextgroupItemLabel: {
-        classList: ['w3-text-black' ],
+        classList: [],
         style: {},
     },
     FieldTextgroupItemInput: {
-        classList: ['w3-input' ,'w3-hover-lime'],
+        classList: [],
         style: {},
     },
     ValidationErrorLabel: {
@@ -133,15 +133,15 @@ var ejfBootstrapStyle = {
         style: {}
     },
     ValidationErrorInput: {
-        classList: ['w3-panel' , 'w3-red'],
+        classList: [],
         style: {}
     },
     ValidationErrorMessage: {
-        classList: ['w3-red' ],
+        classList: [],
         style: {},
     },
     ValueExportTable: {
-        classList: ['w3-table' ],
+        classList: [],
         style: {},
     },
 };

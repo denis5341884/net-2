@@ -266,12 +266,12 @@ class EasyJsonFormFieldMultipleChoice extends EasyJsonFormField {
         // Items field
         let lblItems = document.createElement('label');
         lblItems.htmlFor = EasyJsonForm.newElementId();
-        lblItems.innerHTML = `${EasyJsonForm.dictionary['item.properties.items']}
-        <br/><small>${EasyJsonForm.dictionary['item.properties.items.help']}</small>`;
+        lblItems.innerHTML = `${EasyJsonForm.dictionary['item.properties.items']}<br/><small>${EasyJsonForm.dictionary['item.properties.items.help']}</small>`;
         let txaItems = document.createElement('textarea');
         txaItems.id = EasyJsonForm.getElementId();
         txaItems.value = this.properties.items.join('\n');
-        txaItems.onchange = () => {this.properties.items = txaItems.value.split('\n'); this.value = Array(this.properties.items.length).fill('0'); updateCallback();};
+        txaItems.onchange = () => {this.properties.items = txaItems.value.split('\n'); 
+        this.value = Array(this.properties.items.length).fill('0'); updateCallback();};
         editor.appendChild(lblItems);
         editor.appendChild(txaItems);
         return editor;
