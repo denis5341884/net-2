@@ -11,11 +11,23 @@ var net_css = {
         style: {},
     },
     BuilderToolbar: { 
-        classList: [],
+        classList: ['w3-container'],
         style: {},
     },
-    BuilderToolbarButton: { 
-        classList: ['w3-button', 'w3-border', 'w3-grey', 'w3-hover-lime'],
+    BuilderToolbarDR: {  
+        classList: ['w3-dropdown-hover'],
+        style: {},
+    },
+    BuilderToolbarButtonDR: {  
+        classList: ['w3-button', 'w3-black'],
+        style: {},
+    },   
+    BuilderToolbarButtonDR2: {  
+        classList: ['w3-dropdown-content',  'w3-bar-block',  'w3-border'],
+        style: {},
+    }, 
+    BuilderToolbarButton: {  
+        classList: ['w3-bar-item', 'w3-button'], //'w3-bar-item', 'w3-button'],
         style: {},
     },
     BuilderFieldTooldbar: {
@@ -79,31 +91,35 @@ var net_css = {
         style: {},
     },
     FieldNumberInput: {
-        classList: [],
+        classList: ['w3-twothird'],
         style: {},
     },
+
     FieldDateLabel: {
         classList: ['w3-third'],
         style: {},
     },
     FieldDateInput: {
-        classList: [],
+        classList: ['w3-twothird'],
         style: {},
     },
 
     FieldText: {
-        classList: [],
+        classList: ['w3-half'],
         style: {},
     },
     FieldTextLabel: {
-        classList: ['w3-third','w3-text-black'],
+        classList: ['inputLable'],
         style: {},
     },
     fieldTextInput: {
-        classList: ['w3-twothird','w3-input', 'w3-border'],
+        classList: ['w3-input', 'w3-border', 'w3-margin-bottom',  'w3-hover-lime'],
         style: {},
     },
-
+    FieldTextInfo: {
+        classList: ['w3-quarter'],
+        style: {},
+    },
     FieldTextgroup: {
         classList: [],
         style: {},

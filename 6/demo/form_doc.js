@@ -16,8 +16,8 @@ function open_struc(sd){
         str = [
             {
                 "type": "text",
-                "label": "New Text 1",
-                "customattribute": "",
+                "label": "Новое Текстовое поле 1",
+                "customattribute": "11111",
                 "mandatory": false,
                 "properties": {
                     "lengthmeasurement": "no",
@@ -28,35 +28,19 @@ function open_struc(sd){
                 "value": ""
             },
             {
-                "type": "textgroup",
-                "label": "New Text group 1",
-                "customattribute": "",
+                "type": "number",
+                "label": "Новое Числовое поле 1",
+                "customattribute": "2222222",
                 "mandatory": false,
-                "properties": {
-                    "items": [
-                        1,
-                        2,
-                        3
-                    ]
-                },
-                "value": [
-                    "",
-                    "",
-                    ""
-                ]
+                "properties": null,
+                "value": ""
             },
             {
-                "type": "singlechoice",
-                "label": "New Single choice 1",
-                "customattribute": "",
+                "type": "date",
+                "label": "Новое Дата 1",
+                "customattribute": "33333333",
                 "mandatory": false,
-                "properties": {
-                    "items": [
-                        1,
-                        2,
-                        3
-                    ]
-                },
+                "properties": null,
                 "value": null
             }
         ];
@@ -66,6 +50,7 @@ function open_struc(sd){
         //sampleEasyJsonForm.formUpdate();
         str=sampleEasyJsonForm.structureExport();
     }
+    console.log(str);
     return str;
 }
 
@@ -73,7 +58,7 @@ function open_form(b_or_f){
     //build false
     //form true
     str=open_struc(!b_or_f);
-    sampleEasyJsonForm = new EasyJsonForm('sample', str, ejfStyle, sampleEasyJsonFormOptions);
+    sampleEasyJsonForm = new EasyJsonForm('form_doc', str, ejfStyle, sampleEasyJsonFormOptions);
     if (b_or_f)
     {
         document.querySelector('#form').appendChild(sampleEasyJsonForm.formGet());

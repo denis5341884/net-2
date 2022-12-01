@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The Element Object</h1>
+<h2>The appendChild() Method</h2>
+
+<p>Click "Append" create a paragraph and append it to myDIV:</p>
+
+<button onclick="myFunction()">Append</button>
+
+<div id="myDIV">
+<h2>I am myDIV</h2>
+</div>
+
+<script>
+function myFunction() {
+
+// Create a p element:
+const para = document.createElement("p");
+
+// Create a text node:
+const node = document.createTextNode("This is a paragraph.");
+
+// Append text node to the p element:
+para.appendChild(node);
+
+// Append the p element to the body:
+document.getElementById("myDIV").appendChild(para);
+}
+</script>
+
+</body>
+</html>
