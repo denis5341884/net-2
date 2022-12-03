@@ -15,33 +15,22 @@ function open_struc(sd){
     if (rt){
         str = [
             {
-                "type": "text",
-                "label": "Новое Текстовое поле 1",
-                "customattribute": "11111",
+                "type": "textgroup",
+                "label": "Новое Группа текста 1",
+                "customattribute": "",
                 "mandatory": false,
                 "properties": {
-                    "lengthmeasurement": "no",
-                    "lengthmax": 0,
-                    "lengthmin": 0,
-                    "multiline": false
+                    "items": [
+                        1,
+                        2,
+                        3
+                    ]
                 },
-                "value": ""
-            },
-            {
-                "type": "number",
-                "label": "Новое Числовое поле 1",
-                "customattribute": "2222222",
-                "mandatory": false,
-                "properties": null,
-                "value": ""
-            },
-            {
-                "type": "date",
-                "label": "Новое Дата 1",
-                "customattribute": "33333333",
-                "mandatory": false,
-                "properties": null,
-                "value": null
+                "value": [
+                    "",
+                    "",
+                    ""
+                ]
             }
         ];
         rt=false;

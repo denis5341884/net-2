@@ -10,6 +10,18 @@ class EasyJsonFormField {
     }
 
     builderEditor(ejf, updateCallback) {
+
+
+        //lblMultiline.classList.add('w3-third');
+        //lblMultiline.classList.add('w3-input');
+        //lblMultiline.classList.add('w3-border-0');
+
+
+        //iptMultiline.classList.add('w3-twothird');
+        //iptMultiline.classList.add('w3-border');
+        //iptMultiline.classList.add('w3-input');
+        //iptMultiline.classList.add('w3-hover-lime');
+
         // Creating editor
         let editor = document.createElement('div');
         Object.assign(editor.style,{
@@ -761,15 +773,18 @@ class EasyJsonForm {
             
             // Creating toolbar
             this.builderToolbar = this.element('div', 'BuilderToolbar');
-            this.builderToolbar.appendChild(this.element('div', 'BuilderToolbarDR'));
+            var sp1 = this.element('div', 'BuilderToolbarDR');
+            //dd=this.element('div', 'BuilderToolbarDR')
+            this.builderToolbar.appendChild(sp1);
             
             let buttonDR = this.element('button', 'BuilderToolbarButtonDR');
             buttonDR.disabled = this.options.disabled || false;
             buttonDR.type = 'button';
-            buttonDR.innerHTML = EasyJsonForm.dictionary['item.text.button.dr']; //"Добавить элемент";
+            buttonDR.innerHTML = EasyJsonForm.dictionary['item.text.button.dr'];
             
-            this.builderToolbar.appendChild(buttonDR);
-            this.builderToolbar.appendChild(this.element('div', 'BuilderToolbarDR2'));
+            sp1.appendChild(buttonDR);
+            let divButt= this.element('div', 'BuilderToolbarButtonDR2');
+            sp1.appendChild(divButt);
             
             // Inserting add buttons to the toolbar 
             for (const [type, classs] of Object.entries(EasyJsonForm.registeredClasses)) {
@@ -777,26 +792,17 @@ class EasyJsonForm {
                 elemDR.setAttribute('href', '#');
                 elemDR.disabled = this.options.disabled || false;
                 elemDR.innerHTML =  EasyJsonForm.dictionary[`item.${type}`];
-                this.builderToolbar.appendChild(elemDR);
-                
+                elemDR.onclick = () => {
+                            let fieldName = EasyJsonForm.dictionary[`common.label.new`]
+                                .replace('{{field-type}}', EasyJsonForm.dictionary[`item.${type}`]);
+                            this.structure.push(new classs({label: this.labelFind(fieldName)}));
+                            this.builderUpdate();
+                            if (this.options.onStructureChange) this.options.onStructureChange();
+                    }
+                divButt.appendChild(elemDR);
             }
-
-            //this.builderToolbar = this.element('div', 'BuilderToolbar');
-            // Inserting add buttons to the toolbar 
-            //for (const [type, classs] of Object.entries(EasyJsonForm.registeredClasses)) {
-            //    let button = this.element('button', 'BuilderToolbarButton');
-            //    button.disabled = this.options.disabled || false;
-            //    button.type = 'button';
-            //    button.innerHTML = EasyJsonForm.iconAdd + EasyJsonForm.dictionary[`item.${type}`];
-            //    button.onclick = () => {
-            //        let fieldName = EasyJsonForm.dictionary[`common.label.new`]
-            //            .replace('{{field-type}}', EasyJsonForm.dictionary[`item.${type}`]);
-            //        this.structure.push(new classs({label: this.labelFind(fieldName)}));
-            //        this.builderUpdate();
-            //        if (this.options.onStructureChange) this.options.onStructureChange();
-            //   };
-            //    this.builderToolbar.appendChild(button);
-            //}
+            sp1.appendChild(divButt);
+            this.builder.before(this.builderToolbar);
 
             // Creating table
             let builderTable = this.element('table', 'BuilderTable');
@@ -819,7 +825,7 @@ class EasyJsonForm {
 
     builderUpdate() {
         let tbody = this.builder.children[0].children[0];
-        
+
         while (tbody.rows.length > 0) tbody.deleteRow(-1);
         this.structure.forEach((element, i) => {
             let tr = tbody.insertRow(-1);
@@ -891,8 +897,7 @@ class EasyJsonForm {
 
         let lastRow = tbody.insertRow(-1).insertCell(-1);
         lastRow.colSpan = 2;
-        lastRow.appendChild(this.builderToolbar);
-
+        lastRow.before(this.builderToolbar);
     }
 
     formGet() {
@@ -1080,8 +1085,8 @@ class EasyJsonForm {
         "item.file.vaule.uploaded.file": "Uploaded file",
         "item.textgroup": "Группа текста",
         "item.multiplechoice": "Multiple choice",
-        "item.singlechoice": "Single choice",
-        "item.singlechoice.value.null": ">> Select",
+        "item.singlechoice": "Список значений",
+        "item.singlechoice.value.null": ">> Значение не выбрано",
         "item.properties.customattribute": "Доп. атрибуты",
         "item.properties.label": "Метка",
         "item.properties.items": "Items",
@@ -1109,3 +1114,167 @@ class EasyJsonForm {
         "validation.error.please.fill.all.fields":"Пожалуйста заполните все поля",
     };
 }
+
+// Listing all possible areas that can be styled by applying css classes (using classList) 
+// or using css properties directy (using style). Empty entries can be deleted (they are
+// just shown for reference purposes).
+var net_css = {
+    Builder: { 
+        classList: [],
+        style: {},
+    },
+    BuilderTable: {
+        classList: [],
+        style: {},
+    },
+    BuilderToolbar: { 
+        classList: ['w3-container'],
+        style: {},
+    },
+    BuilderToolbarDR: {  
+        classList: ['w3-dropdown-hover'],
+        style: {},
+    },
+    BuilderToolbarButtonDR: {  
+        classList: ['w3-button', 'w3-grey', 'w3-hover-lime'],
+        style: {},
+    },   
+    BuilderToolbarButtonDR2: {  
+        classList: ['w3-dropdown-content',  'w3-bar-block',  'w3-border'],
+        style: {},
+    }, 
+    BuilderToolbarButton: {  
+        classList: ['w3-bar-item', 'w3-button', 'w3-hover-lime'],
+        style: {},
+    },
+    BuilderFieldTooldbar: {
+        classList: ['w3-bar'],
+        style: {},
+    },
+    BuilderFieldTooldbarButton: {
+        classList: ['w3-button', 'w3-border', 'w3-grey','w3-hover-lime'],
+        style: {},
+    },
+    BuilderFieldTooldbarDeleteButton: {
+        classList: ['w3-button', 'w3-border', 'w3-grey','w3-hover-red'],
+        style: {},
+    },
+    Form: { 
+        classList: [],
+        style: {},
+    },
+    FieldMultiplechoice: {
+        classList: [],
+        style: {},
+    },
+    FieldMultiplechoiceLabel: {
+        classList: ['w3-third', 'w3-input', 'w3-border-0'],
+        style: {},
+    },
+    FieldMultiplechoiceGroup: {
+        classList: [],
+        style: {},
+    },
+    FieldMultiplechoiceItem: {
+        classList: [],
+        style: {},
+    },
+    FieldMultiplechoiceItemLabel: {
+        classList: [],
+        style: {},
+    },
+    FieldMultiplechoiceItemInput: {
+        classList: [],
+        style: {},
+    },
+    FieldSinglechoice: {
+        classList: [],
+        style: {},
+    },
+    FieldSinglechoiceLabel: {
+        classList: ['w3-third', 'w3-input', 'w3-border-0'],
+        style: {},
+    },
+    FieldSinglechoiceSelect: {
+        classList: ['w3-twothird', 'w3-border', 'w3-input',  'w3-hover-lime'],
+        style: {},
+    },
+    FieldNumber: {
+        classList: [],
+        style: {},
+    },
+    FieldNumberLabel: {
+        classList: ['w3-third', 'w3-input', 'w3-border-0'],
+        style: {},
+    },
+    FieldNumberInput: {
+        classList: ['w3-twothird', 'w3-border', 'w3-input',  'w3-hover-lime'],
+        style: {},
+    },
+
+    FieldDateLabel: {
+        classList: ['w3-third', 'w3-input', 'w3-border-0'],
+        style: {},
+    },
+    FieldDateInput: {
+        classList: ['w3-twothird', 'w3-border', 'w3-input',  'w3-hover-lime'],
+        style: {},
+    },
+
+    FieldText: {
+        classList: [],
+        style: {},
+    },
+    FieldTextLabel: {
+        classList: ['w3-third', 'w3-input', 'w3-border-0'],
+        style: {},
+    },
+    fieldTextInput: {
+        classList: ['w3-twothird', 'w3-border', 'w3-input',  'w3-hover-lime'],
+        style: {},
+    },
+    FieldTextInfo: {
+        classList: [],
+        style: {},
+    },
+    FieldTextgroup: {
+        classList: [],
+        style: {},
+    },
+    FieldTextgroupLabel: {
+        classList: ['w3-third', 'w3-input', 'w3-border-0'],
+        style: {},
+    },
+    FieldTextgroupGroup: {
+        classList: ['w3-input', 'w3-border-0'],
+        style: {},
+    },
+    FieldTextgroupItem: {
+        classList: ['w3-rest'],
+        style: {},
+    },
+    FieldTextgroupItemLabel: {
+        classList: ['w3-third', 'w3-input', 'w3-border-0'],
+        style: {},
+    },
+    FieldTextgroupItemInput: {
+        classList: ['w3-third', 'w3-border', 'w3-input',  'w3-hover-lime'],
+        style: {},
+    },
+    ValidationErrorLabel: {
+        classList: [],
+        style: {}
+    },
+    ValidationErrorInput: {
+        classList: [],
+        style: {}
+    },
+    ValidationErrorMessage: {
+        classList: [],
+        style: {},
+    },
+    ValueExportTable: {
+        classList: [],
+        style: {},
+    },
+};
