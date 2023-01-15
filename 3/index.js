@@ -1,5 +1,90 @@
-var myList = [{ "name": "abc", "age": 50, "hobby": "lissen" },{ "name": "dfg", "age": 25, "hobby": "swimming" },{ "name": "xyz", "age": 50, "hobby": "programming" }];
-
+//var myList = [{ "name": "abc", "age": 50, "hobby": "lissen" },{ "name": "dfg", "age": 25, "hobby": "swimming" },{ "name": "xyz", "age": 50, "hobby": "programming" }];
+var myList = [
+    {
+        "id": "num_doc",
+        "type": "number",
+        "label": "Номер документа",
+        "value": null,
+        "onclick": null,
+        "mandatory": false,
+        "properties": null,
+        "customattribute": ""
+    },
+    {
+        "id": "data_doc",
+        "type": "datetime",
+        "label": "Дата документа",
+        "value": null,
+        "onclick": null,
+        "mandatory": false,
+        "properties": null,
+        "customattribute": ""
+    },
+    {
+        "id": "kassa_doc",
+        "type": "spr",
+        "label": "Касса",
+        "value": "",
+        "spr_id": "29",
+        "onclick": "show_spr_modal(29,0,this.id)",
+        "spr_vlad": null,
+        "mandatory": false,
+        "value_kod": "0",
+        "properties": null,
+        "customattribute": ""
+    },
+    {
+        "id": "kont_doc",
+        "type": "spr",
+        "label": "Абонент",
+        "value": "",
+        "spr_id": "1",
+        "onclick": "show_spr_modal(1,0,this.id)",
+        "spr_vlad": null,
+        "mandatory": false,
+        "value_kod": "0",
+        "properties": null,
+        "customattribute": ""
+    },
+    {
+        "id": "dog_doc",
+        "type": "spr",
+        "label": "Договор контрагента",
+        "value": "",
+        "spr_id": "2",
+        "onclick": "show_spr_modal(2,1,this.id)",
+        "spr_vlad": "1",
+        "mandatory": false,
+        "value_kod": "0",
+        "properties": null,
+        "customattribute": ""
+    },
+    {
+        "id": "summa_doc",
+        "type": "number",
+        "label": "Сумма документа",
+        "value": "",
+        "onclick": null,
+        "mandatory": false,
+        "properties": null,
+        "customattribute": ""
+    },
+    {
+        "id": null,
+        "type": "text",
+        "label": "Примечание",
+        "value": "",
+        "onclick": null,
+        "mandatory": false,
+        "properties": {
+            "lengthmax": 0,
+            "lengthmin": 0,
+            "multiline": false,
+            "lengthmeasurement": "no"
+        },
+        "customattribute": ""
+    }
+];
 // Builds the HTML Table out of myList.
 function buildHtmlTable(selector) {
   var columns = addAllColumnHeaders(myList, selector);

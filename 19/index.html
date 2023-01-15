@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WebDataRocks</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <link  href="webdatarocks.css" rel="stylesheet" />
+        <script src="webdatarocks.js"></script>
+        <script src="ot.js"></script>
+    </head>
+    <body>
+        <input onclick="open_ot()" type="button" value="Загрузить">
+        <button onclick="updateDataCSV()">Update data from CSV</button>
+        <button class="btn btn-title" onclick="setOption('title', 'New Sales Report')">New Title</button>
+        <button class="btn cls" onclick="setOption('type', 'classic')">Classic</button>
+        <button class="btn cmp" onclick="setOption('type', 'compact')">Compact</button>
+        <button class="btn flt" onclick="setOption('type', 'flat')">Flat</button>
+        <button class="btn hdrs" onclick="setOption('showHeaders', false)">Hide headers</button>
+        <button class="btn hdrs-on" onclick="setOption('showHeaders', true)">Show headers</button>
+        
+        <div id="wdr-component"></div>
+    </body>
+</html>
