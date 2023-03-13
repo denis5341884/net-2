@@ -1,0 +1,29 @@
+{
+  "name": "FormModule",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "debug": "node inspect app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Irik1/FormModule.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Irik1/FormModule/issues"
+  },
+  "homepage": "https://github.com/Irik1/FormModule#readme",
+  "dependencies": {
+    "convert-multiple-files": "^1.1.4",
+    "easy-template-x": "^2.0.0",
+    "pdf-merger-js": "^3.1.0"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.6.7"
+  }
+}
